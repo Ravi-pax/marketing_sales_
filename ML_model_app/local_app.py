@@ -5,24 +5,12 @@ import pickle
 import streamlit as st 
 from sklearn.preprocessing import StandardScaler
 
-## model 1 
-#model_path = r'model3.pkl'
-
-#with open(model_path,'rb') as model_file:
-#    loaded_model = pickle.load(model_file)
 
 #model 2 (pipeline)
 model_path = r'pipeline_model.pkl'
 
 with open(model_path,'rb') as model_file:
     loaded_model = pickle.load(model_file)
-
-
-#model 3 (LR)
-#model_path = r'model4.pkl'
-
-#with open(model_path,'rb') as model_file:
-#    loaded_model4 = pickle.load(model_file)
 
 
 ## model prediction process
