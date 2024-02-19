@@ -1,12 +1,7 @@
-# import packages
-import pandas as pd 
-import numpy as np 
-import pickle 
-import streamlit as st 
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
 
-##
-model_path = r'model3.pkl'
+json = pd.read_json('clint_budget_demo.json')
+df = pd.Dataframe(json)
 
-with open(model_path,'rb') as model_file:
-    loaded_model = pickle.load(model_file)
-
+print(df)

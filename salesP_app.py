@@ -21,9 +21,14 @@ def predictor(array):
         return None
 
 def main():
-    st.title('Sales Prediction App')
+    # desinining 
 
-    # Option to upload a JSON file or input three values
+    st.title('Sales Prediction Via Ads Expenditure')
+    st.subheader('This is how input data should look like')
+
+    st.image('.\media_files\data_should_like.PNG')
+
+    # Option to upload a JSON file or input three s
     option = st.radio("Choose input method:", ("Upload JSON file", "Input three values"))
 
     scaled_data = None  # Initialize scaled_data outside the if blocks
@@ -33,12 +38,23 @@ def main():
 
         if upload_ is not None:
             try:
-                df = pd.read_json(upload_)
-                st.dataframe(df)
+                json = pd.read_json(upload_)
+
+                st.dataframe(json)
+
+                df = pd.DataFrame(json)
+
+                # Transpose the DataFrame
+                df_transposed = df.transpose()
+
 
                 # Scale down
                 scaler = StandardScaler()
-                scaled_data = scaler.fit_transform(df)
+                scaled_data = scaler.fit_transform(df_transposed)
+                scaled_data = scaled_data.T
+                
+                # back to dataframe (scaled)
+                scaled_data = pd.DataFrame(scaled_data)
 
                 if scaled_data is not None:  # Check if scaled_data is not None before passing it to predictor
                     prediction = predictor(scaled_data)
@@ -66,10 +82,15 @@ def main():
         if st.button("Predict"):
             try:
                 st.dataframe(collects)
-
+                collects_Transpobe = collects.transpose()
                 # Scale down
                 scaler = StandardScaler()
-                scaled_data = scaler.fit_transform(collects)
+                scaled_data = scaler.fit_transform(collects_Transpobe)
+
+                scaled_data = scaled_data.T
+
+                # back to dataframe (scaled)
+                scaled_data = pd.DataFrame(scaled_data)
 
                 if scaled_data is not None:  # Check if scaled_data is not None before passing it to predictor
                     prediction = predictor(scaled_data)
