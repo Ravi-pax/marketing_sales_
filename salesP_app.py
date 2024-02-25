@@ -26,7 +26,7 @@ def main():
     st.title('Sales Prediction Via Ads Expenditure')
     st.subheader('This is how input data should look like')
 
-    st.image('.\images\data_should_like.PNG')
+    st.image('data_should_like.PNG')
 
     # Option to upload a JSON file or input three s
     option = st.radio("Choose input method:", ("Upload JSON file", "Input three values"))
