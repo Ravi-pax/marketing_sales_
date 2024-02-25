@@ -21,12 +21,12 @@ def predictor(array):
         return None
 
 def main():
-    # desinining 
+    # desinining
 
     st.title('Sales Prediction Via Ads Expenditure')
     st.subheader('This is how input data should look like')
 
-    st.image('.\media_files\data_should_like.PNG')
+    st.image('.\images\data_should_like.PNG')
 
     # Option to upload a JSON file or input three s
     option = st.radio("Choose input method:", ("Upload JSON file", "Input three values"))
