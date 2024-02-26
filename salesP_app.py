@@ -4,6 +4,7 @@ import numpy as np
 import pickle 
 import streamlit as st 
 from sklearn.preprocessing import StandardScaler
+import os
 
 # Load the model
 model_path = r'pipeline_model.pkl'
@@ -25,6 +26,12 @@ def main():
 
     st.title('Sales Prediction Via Ads Expenditure')
     st.subheader('This is how input data should look like')
+
+    #current_dir = os.path.dirname(__file__)
+    #current_dir = os.getcwd()
+    # Construct the file path to the image
+    #image_path = os.path.join(current_dir, 'images', 'data_should_like.png')
+    #st.image(image_path)
 
     st.image('data_should_like.PNG')
 
